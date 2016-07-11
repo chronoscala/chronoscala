@@ -21,6 +21,8 @@ class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Order
 
   def -(period: Period): ZonedDateTime = underlying.minus(period)
 
+  def to(end: ZonedDateTime): Interval = Interval(underlying.toInstant, end.toInstant)
+
   def compare(that: ZonedDateTime): Int = underlying.compareTo(that)
 
 }
