@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.LocalDateTime
+import java.time.{Period, Duration, LocalDateTime}
 import java.time.temporal.{ChronoUnit, TemporalAmount}
 
 class RichLocalDateTime(val underlying: LocalDateTime) extends AnyVal with Ordered[LocalDateTime] {
@@ -9,17 +9,17 @@ class RichLocalDateTime(val underlying: LocalDateTime) extends AnyVal with Order
 
   def +(amount: TemporalAmount): LocalDateTime = underlying.plus(amount)
 
-  def +(builder: DurationBuilder): LocalDateTime = underlying.plus(builder.underlying)
+  def +(duration: Duration): LocalDateTime = underlying.plus(duration)
 
-  def +(builder: PeriodBuilder): LocalDateTime = underlying.plus(builder.underlying)
+  def +(period: Period): LocalDateTime = underlying.plus(period)
 
   def -(millis: Long): LocalDateTime = underlying.minus(millis, ChronoUnit.MILLIS)
 
   def -(amount: TemporalAmount): LocalDateTime = underlying.minus(amount)
 
-  def -(builder: DurationBuilder): LocalDateTime = underlying.minus(builder.underlying)
+  def -(duration: Duration): LocalDateTime = underlying.minus(duration)
 
-  def -(builder: PeriodBuilder): LocalDateTime = underlying.minus(builder.underlying)
+  def -(period: Period): LocalDateTime = underlying.minus(period)
 
   def compare(that: LocalDateTime): Int = underlying.compareTo(that)
 

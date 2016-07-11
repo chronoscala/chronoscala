@@ -1,12 +1,17 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{LocalDateTime, LocalTime, LocalDate, ZonedDateTime}
+import java.time._
 import scala.language.implicitConversions
 
-trait Implicits extends IntImplicits with TimeImplicits with OrderingImplicits
+trait Implicits extends IntImplicits with DurationImplicits with TimeImplicits with OrderingImplicits
 
 trait IntImplicits {
   implicit def richInt(n: Int): RichInt = new RichInt(n)
+}
+
+trait DurationImplicits {
+  implicit def richDuration(d: Duration): RichDuration = new RichDuration(d)
+  implicit def richPeriod(p: Period): RichPeriod = new RichPeriod(p)
 }
 
 trait TimeImplicits {

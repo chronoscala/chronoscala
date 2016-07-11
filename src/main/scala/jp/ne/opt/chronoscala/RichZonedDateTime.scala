@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.ZonedDateTime
+import java.time.{Period, Duration, ZonedDateTime}
 import java.time.temporal.{TemporalAmount, ChronoUnit}
 
 class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Ordered[ZonedDateTime] {
@@ -9,17 +9,17 @@ class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Order
 
   def +(amount: TemporalAmount): ZonedDateTime = underlying.plus(amount)
 
-  def +(builder: DurationBuilder): ZonedDateTime = underlying.plus(builder.underlying)
+  def +(duration: Duration): ZonedDateTime = underlying.plus(duration)
 
-  def +(builder: PeriodBuilder): ZonedDateTime = underlying.plus(builder.underlying)
+  def +(period: Period): ZonedDateTime = underlying.plus(period)
 
   def -(millis: Long): ZonedDateTime = underlying.minus(millis, ChronoUnit.MILLIS)
 
   def -(amount: TemporalAmount): ZonedDateTime = underlying.minus(amount)
 
-  def -(builder: DurationBuilder): ZonedDateTime = underlying.minus(builder.underlying)
+  def -(duration: Duration): ZonedDateTime = underlying.minus(duration)
 
-  def -(builder: PeriodBuilder): ZonedDateTime = underlying.minus(builder.underlying)
+  def -(period: Period): ZonedDateTime = underlying.minus(period)
 
   def compare(that: ZonedDateTime): Int = underlying.compareTo(that)
 
