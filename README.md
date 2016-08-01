@@ -1,5 +1,7 @@
 # chronoscala
 
+[![Build Status](https://travis-ci.org/opt-tech/chronoscala.svg?branch=master)](https://travis-ci.org/opt-tech/chronoscala)
+
 A port of [nscala_time](https://github.com/nscala-time/nscala-time) to JSR-310.
 
 ## Requirements
