@@ -12,6 +12,6 @@ object BasicFunctionalitySpec extends Properties("ZonedDateTime") {
 
   property("ZonedDateTime.now < (ZonedDateTime.now + 1.hours)") = Prop.secure {
     val now: ZonedDateTime = ZonedDateTime.now
-    (now plusHours 1) isAfter now
+    now < (now plusHours 1)
   }
 }
