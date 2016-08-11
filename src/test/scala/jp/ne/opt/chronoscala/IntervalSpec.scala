@@ -4,10 +4,8 @@ import java.time.{Duration, Instant}
 
 import org.scalacheck.{Gen, Prop, Properties}
 
-object IntervalSpec extends Properties("Interval") {
+object IntervalSpec extends Properties("Interval") with Gens {
   import Prop.forAll
-
-  val instantGen: Gen[Instant] = Gen.choose(0L, Long.MaxValue).map(Instant.ofEpochMilli)
 
   val startEndGen: Gen[(Instant, Instant)] = for {
     startEpochMillis <- Gen.choose(0L, Long.MaxValue)
