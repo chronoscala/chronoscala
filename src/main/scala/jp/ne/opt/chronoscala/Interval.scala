@@ -6,7 +6,7 @@ import java.time.{ZonedDateTime, Duration, ZoneId, Instant}
  * Represents an immutable time interval.
  */
 case class Interval(startInstant: Instant, endInstant: Instant) {
-  require(endInstant.isAfter(startInstant), "The end instant must be greater the start")
+  require(!endInstant.isBefore(startInstant), "The end instant must not be before the start")
 
   val start = startInstant.atZone(ZoneId.systemDefault())
 
