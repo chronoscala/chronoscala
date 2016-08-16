@@ -18,5 +18,12 @@ lazy val chronoscala = (project in file("."))
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
-    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test"
+    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test",
+
+    TaskKey[Unit]("checkScalariform") := {
+      val diff = "git diff".!!
+      if (diff.nonEmpty) {
+        sys.error("Working directory is dirty!\n" + diff)
+      }
+    }
   )
