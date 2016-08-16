@@ -1,8 +1,8 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Duration, Instant}
+import java.time.{ Duration, Instant }
 
-import org.scalacheck.{Gen, Prop, Properties}
+import org.scalacheck.{ Gen, Prop, Properties }
 
 object IntervalSpec extends Properties("Interval") with Gens {
   import Prop.forAll
@@ -21,23 +21,26 @@ object IntervalSpec extends Properties("Interval") with Gens {
     Interval(instant, instant).duration == Duration.ZERO
   }
 
-  property("contains itself") = forAll(startEndGen) { case (start, end) =>
-    val interval = Interval(start, end)
-    interval.contains(interval)
+  property("contains itself") = forAll(startEndGen) {
+    case (start, end) =>
+      val interval = Interval(start, end)
+      interval.contains(interval)
   }
 
-  property("contains start and end") = forAll(startEndGen) { case (start, end) =>
-    val interval = Interval(start, end)
+  property("contains start and end") = forAll(startEndGen) {
+    case (start, end) =>
+      val interval = Interval(start, end)
 
-    interval.contains(start) && interval.contains(end)
+      interval.contains(start) && interval.contains(end)
   }
 
   property("contains instant between start and end") = forAll(for {
     (start, end) <- startEndGen
     middleMillis <- Gen.choose(start.toEpochMilli, end.toEpochMilli)
-  } yield (start, Instant.ofEpochMilli(middleMillis), end)) { case (start, middle, end) =>
-    val interval = Interval(start, end)
+  } yield (start, Instant.ofEpochMilli(middleMillis), end)) {
+    case (start, middle, end) =>
+      val interval = Interval(start, end)
 
-    interval.contains(middle)
+      interval.contains(middle)
   }
 }

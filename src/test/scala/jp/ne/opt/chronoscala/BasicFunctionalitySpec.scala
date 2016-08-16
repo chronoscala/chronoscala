@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import jp.ne.opt.chronoscala.Imports._
-import org.scalacheck.{Prop, Properties}
+import org.scalacheck.{ Prop, Properties }
 
 object BasicFunctionalitySpec extends Properties("ZonedDateTime") {
 

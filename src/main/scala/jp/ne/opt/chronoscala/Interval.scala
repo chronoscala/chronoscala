@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ZonedDateTime, Duration, ZoneId, Instant}
+import java.time.{ ZonedDateTime, Duration, ZoneId, Instant }
 
 /**
  * Represents an immutable time interval.

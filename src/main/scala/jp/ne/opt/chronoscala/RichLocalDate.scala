@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Period, LocalDate}
+import java.time.{ Period, LocalDate }
 
 class RichLocalDate(val underlying: LocalDate) extends AnyVal with Ordered[LocalDate] {
 

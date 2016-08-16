@@ -21,6 +21,6 @@ class RichDuration(val underlying: Duration) extends AnyVal {
 
   def -(duration: Duration): Duration = underlying.minus(duration)
 
-  def unary_- :Duration = underlying.negated
+  def unary_- : Duration = underlying.negated
 
 }

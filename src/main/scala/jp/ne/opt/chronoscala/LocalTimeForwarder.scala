@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.format.DateTimeFormatter
-import java.time.{Clock, ZoneId, LocalTime}
+import java.time.{ Clock, ZoneId, LocalTime }
 
 trait LocalTimeForwarder {
 

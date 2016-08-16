@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Instant, ZonedDateTime}
+import java.time.{ Instant, ZonedDateTime }
 import java.util.TimeZone
 
 import org.scalacheck.Gen
