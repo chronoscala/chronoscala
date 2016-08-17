@@ -5,7 +5,7 @@ import java.time.{Clock, ZoneId, LocalDateTime}
 
 trait LocalDateTimeForwarder {
 
-  def now = LocalDateTime.now()
+  def now() = LocalDateTime.now()
 
   def now(clock: Clock) = LocalDateTime.now(clock)
 

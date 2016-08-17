@@ -5,7 +5,7 @@ import java.time.{Clock, ZoneId, ZonedDateTime}
 
 trait ZonedDateTimeForwarder {
 
-  def now = ZonedDateTime.now()
+  def now() = ZonedDateTime.now()
 
   def now(clock: Clock) = ZonedDateTime.now(clock)
 
