@@ -1,6 +1,7 @@
 package jp.ne.opt.chronoscala
 
 object Imports extends Imports
+object NamespacedImports extends Imports with NamespacedImplicits
 
 trait Imports extends TypeImports with StaticForwarderImports with Implicits
 
