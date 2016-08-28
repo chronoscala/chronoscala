@@ -12,7 +12,7 @@ A port of [nscala_time](https://github.com/nscala-time/nscala-time) to JSR-310.
 ## Installation
 
 ```scala
-libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.0.2"
+libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.0.3"
 ```
 
 ## Usage
@@ -33,4 +33,13 @@ ZonedDateTime.now() to (ZonedDateTime.now() + 1.day) // returns Interval(2016-07
 (2.hours + 45.minutes + 10.seconds).millis // returns 9910000
 
 2.months + 3.days // returns P2M3D
+```
+
+Chronoscala also provides `NamespacedImports` to avoid conflicts between other library. (Currently, only methods in Int implicits are namespaced.)
+
+```scala
+import jp.ne.opt.chronoscala.NamespacedImports._
+
+// Methods are namespaced with `cs`.
+2.cs.months + 3.cs.days // returns P2M3D
 ```
