@@ -1,12 +1,30 @@
 package jp.ne.opt.chronoscala
 
 import java.time._
+
+import jp.ne.opt.chronoscala.Tag.CS
+
 import scala.language.implicitConversions
 
-trait Implicits extends IntImplicits with DurationImplicits with TimeImplicits with OrderingImplicits
+trait Implicits
+  extends IntImplicits
+    with DurationImplicits
+    with TimeImplicits
+    with OrderingImplicits
+
+trait NamespacedImplicits
+  extends NamespacedIntImplicits
+    with DurationImplicits
+    with TimeImplicits
+    with OrderingImplicits
 
 trait IntImplicits {
   implicit def richInt(n: Int): RichInt = new RichInt(n)
+}
+
+trait NamespacedIntImplicits {
+  implicit def richIntCs(n: Int): RichAny[Int] = new RichAny(n)
+  implicit def richCsInt(n: CS[Int]): RichInt = new RichInt(n)
 }
 
 trait DurationImplicits {
