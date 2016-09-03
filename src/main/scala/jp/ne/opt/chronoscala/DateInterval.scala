@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.{LocalDate, Period}
-import jp.ne.opt.chronoscala.Imports.richLocalDate
+import jp.ne.opt.chronoscala.Imports._
 
 /**
  * Represents an immutable date interval
