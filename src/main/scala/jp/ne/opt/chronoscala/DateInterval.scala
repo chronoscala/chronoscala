@@ -11,7 +11,7 @@ case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) 
     if (0 <= idx && idx < length) {
       iterator.drop(idx).next
     } else {
-      throw new IndexOutOfBoundsException()
+      throw new IndexOutOfBoundsException(idx.toString)
     }
   }
   
