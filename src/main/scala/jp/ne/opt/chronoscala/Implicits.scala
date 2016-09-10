@@ -37,6 +37,7 @@ trait TimeImplicits {
   implicit def richLocalDateTime(t: LocalDateTime): RichLocalDateTime = new RichLocalDateTime(t)
   implicit def richLocalTime(t: LocalTime): RichLocalTime = new RichLocalTime(t)
   implicit def richLocalDate(t: LocalDate): RichLocalDate = new RichLocalDate(t)
+  implicit def richInstant(i: Instant): RichInstant = new RichInstant(i)
 }
 
 trait OrderingImplicits {
@@ -44,4 +45,5 @@ trait OrderingImplicits {
   implicit val localDateTimeOrdering: Ordering[LocalDateTime] = Ordering.fromLessThan(_ isBefore _)
   implicit val localDateOrdering: Ordering[LocalDate] = Ordering.fromLessThan(_ isBefore _)
   implicit val localTimeOrdering: Ordering[LocalTime] = Ordering.fromLessThan(_ isBefore _)
+  implicit val instantOrdering: Ordering[Instant] = Ordering.fromLessThan(_ isBefore _)
 }
