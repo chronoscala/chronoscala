@@ -27,4 +27,4 @@
     > publishSigned
     > sonatypeRelease
     ```
-6. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT`.
+6. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT` and update Mima setting.
