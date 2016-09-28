@@ -20,11 +20,7 @@
 
     ```bash
     $ sbt
-    > set scalaVersion := "2.10.6"
-    > publishSigned
-    > sonatypeRelease
-    > set scalaVersion := "2.11.8"
-    > publishSigned
-    > sonatypeRelease
+    > +publishSigned
+    > +sonatypeRelease
     ```
 6. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT` and update Mima setting.
