@@ -1,17 +1,20 @@
 package jp.ne.opt.chronoscala
 
 import jp.ne.opt.chronoscala.Imports._
-import org.scalacheck.{ Prop, Properties }
+import org.scalacheck.Prop.forAll
+import org.scalacheck.{Prop, Properties}
 
-object BasicFunctionalitySpec extends Properties("ZonedDateTime") {
+object BasicFunctionalitySpec extends Properties("ZonedDateTime") with Gens {
 
-  property("ZonedDateTime.now == ZonedDateTime.now") = Prop.secure {
-    val now: ZonedDateTime = ZonedDateTime.now
-    now == now
+  property("ZonedDateTime equality") = Prop.secure {
+    forAll(zonedDateTimeGen) { zonedDateTime =>
+      zonedDateTime == zonedDateTime
+    }
   }
 
-  property("ZonedDateTime.now < (ZonedDateTime.now + 1.hours)") = Prop.secure {
-    val now: ZonedDateTime = ZonedDateTime.now
-    now < (now plusHours 1)
+  property("zonedDateTime < (zonedDateTime + 1.hour)") = Prop.secure {
+    forAll(zonedDateTimeGen) { zonedDateTime =>
+      zonedDateTime < (zonedDateTime + 1.hour)
+    }
   }
 }

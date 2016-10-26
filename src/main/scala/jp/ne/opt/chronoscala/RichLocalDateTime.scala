@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ Period, Duration, LocalDateTime }
-import java.time.temporal.{ ChronoUnit, TemporalAmount }
+import java.time.{Period, Duration, LocalDateTime}
+import java.time.temporal.{ChronoUnit, TemporalAmount}
 
 class RichLocalDateTime(val underlying: LocalDateTime) extends AnyVal with Ordered[LocalDateTime] {
 

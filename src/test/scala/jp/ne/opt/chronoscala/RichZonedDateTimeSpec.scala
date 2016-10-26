@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import org.scalacheck.{ Prop, Properties }
+import org.scalacheck.{Prop, Properties}
 import Imports._
 
 object RichZonedDateTimeSpec extends Properties("RichZonedDateTime") with Gens {

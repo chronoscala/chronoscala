@@ -1,8 +1,8 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ Duration, Instant }
+import java.time.{Duration, Instant}
 
-import org.scalacheck.{ Gen, Prop, Properties }
+import org.scalacheck.{Gen, Prop, Properties}
 
 object IntervalSpec extends Properties("Interval") with Gens {
   import Prop.forAll
