@@ -14,9 +14,9 @@ case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) 
       throw new IndexOutOfBoundsException(idx.toString)
     }
   }
-  
+
   def iterator = Iterator.iterate(startDate)(_ + step).takeWhile(_ <= endDate)
-  
+
   def length = iterator.length
 
   def by(step: Period) = this.copy(step = step)

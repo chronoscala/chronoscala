@@ -18,7 +18,14 @@ lazy val chronoscala = (project in file("."))
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
-    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test"
+    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.2" % "test",
+
+    TaskKey[Unit]("checkScalariform") := {
+      val diff = "git diff".!!
+      if (diff.nonEmpty) {
+        sys.error("Working directory is dirty!\n" + diff)
+      }
+    }
   )
   .settings({
     val previousVersions = Set(0).map(patch => s"0.1.$patch")
@@ -32,3 +39,13 @@ lazy val chronoscala = (project in file("."))
       }
     )
   })
+  .settings(
+    {
+      import scalariform.formatter.preferences._
+      import SbtScalariform._
+
+      ScalariformKeys.preferences := ScalariformKeys.preferences.value
+        .setPreference(DoubleIndentClassDeclaration, false)
+        .setPreference(SpacesAroundMultiImports, false)
+    }
+  )

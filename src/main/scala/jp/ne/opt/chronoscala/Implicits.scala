@@ -8,15 +8,15 @@ import scala.language.implicitConversions
 
 trait Implicits
   extends IntImplicits
-    with DurationImplicits
-    with TimeImplicits
-    with OrderingImplicits
+  with DurationImplicits
+  with TimeImplicits
+  with OrderingImplicits
 
 trait NamespacedImplicits
   extends NamespacedIntImplicits
-    with DurationImplicits
-    with TimeImplicits
-    with OrderingImplicits
+  with DurationImplicits
+  with TimeImplicits
+  with OrderingImplicits
 
 trait IntImplicits {
   implicit def richInt(n: Int): RichInt = new RichInt(n)
