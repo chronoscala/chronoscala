@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ Duration, LocalTime }
+import java.time.{Duration, LocalTime}
 import java.time.temporal.ChronoUnit
 
 class RichLocalTime(val underlying: LocalTime) extends AnyVal with Ordered[LocalTime] {

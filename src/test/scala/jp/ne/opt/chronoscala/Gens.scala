@@ -1,12 +1,12 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ Instant, ZonedDateTime }
+import java.time.{Instant, ZonedDateTime}
 import java.util.TimeZone
 
 import org.scalacheck.Gen
 
 trait Gens {
-  def instantGen: Gen[Instant] = Gen.choose(0L, Long.MaxValue).map(Instant.ofEpochMilli)
+  def instantGen: Gen[Instant] = Gen.chooseNum(0L, Long.MaxValue).map(Instant.ofEpochMilli)
 
   def zonedDateTimeGen: Gen[ZonedDateTime] = for {
     instant <- instantGen

@@ -1,11 +1,11 @@
 package jp.ne.opt.chronoscala
 
 import java.time.format.DateTimeFormatter
-import java.time.{ Clock, ZoneId, ZonedDateTime }
+import java.time.{Clock, ZoneId, ZonedDateTime}
 
 trait ZonedDateTimeForwarder {
 
-  def now = ZonedDateTime.now()
+  def now() = ZonedDateTime.now()
 
   def now(clock: Clock) = ZonedDateTime.now(clock)
 
