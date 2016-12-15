@@ -25,4 +25,7 @@ class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Order
 
   def compare(that: ZonedDateTime): Int = underlying.compareTo(that)
 
+  def max(that: ZonedDateTime): ZonedDateTime = if (this > that) underlying else that
+
+  def min(that: ZonedDateTime): ZonedDateTime = if (this < that) underlying else that
 }

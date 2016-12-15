@@ -15,4 +15,7 @@ class RichLocalTime(val underlying: LocalTime) extends AnyVal with Ordered[Local
 
   def compare(that: LocalTime): Int = underlying.compareTo(that)
 
+  def max(that: LocalTime): LocalTime = if (this > that) underlying else that
+
+  def min(that: LocalTime): LocalTime = if (this < that) underlying else that
 }
