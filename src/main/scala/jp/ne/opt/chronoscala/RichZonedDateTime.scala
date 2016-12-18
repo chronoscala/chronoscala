@@ -1,6 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.{Period, Duration, ZonedDateTime}
+import java.time.format.DateTimeFormatter
 import java.time.temporal.{TemporalAmount, ChronoUnit}
 
 class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Ordered[ZonedDateTime] {
@@ -24,5 +25,7 @@ class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Order
   def to(end: ZonedDateTime): Interval = Interval(underlying.toInstant, end.toInstant)
 
   def compare(that: ZonedDateTime): Int = underlying.compareTo(that)
+
+  def format(pattern: String): String = underlying.format(DateTimeFormatter.ofPattern(pattern))
 
 }
