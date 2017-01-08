@@ -7,12 +7,12 @@ A port of [nscala_time](https://github.com/nscala-time/nscala-time) to JSR-310.
 ## Requirements
 
 - Java 8
-- Scala 2.10.x or 2.11.x
+- Scala 2.10.x / 2.11.x / 2.12.x
 
 ## Installation
 
 ```scala
-libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.1.0"
+libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.1.1"
 ```
 
 ## Usage
