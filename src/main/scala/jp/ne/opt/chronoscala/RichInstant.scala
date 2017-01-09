@@ -25,4 +25,7 @@ class RichInstant(val underlying: Instant) extends AnyVal with Ordered[Instant] 
 
   def compare(that: Instant): Int = underlying.compareTo(that)
 
+  def max(that: Instant): Instant = if (this > that) underlying else that
+
+  def min(that: Instant): Instant = if (this < that) underlying else that
 }
