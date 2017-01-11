@@ -1,6 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.{Duration, LocalTime}
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
 class RichLocalTime(val underlying: LocalTime) extends AnyVal with Ordered[LocalTime] {
@@ -14,5 +15,7 @@ class RichLocalTime(val underlying: LocalTime) extends AnyVal with Ordered[Local
   def -(duration: Duration): LocalTime = underlying.minus(duration)
 
   def compare(that: LocalTime): Int = underlying.compareTo(that)
+
+  def format(pattern: String): String = underlying.format(DateTimeFormatter.ofPattern(pattern))
 
 }
