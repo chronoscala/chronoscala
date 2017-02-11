@@ -24,6 +24,8 @@ class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Order
 
   def to(end: ZonedDateTime): Interval = Interval(underlying.toInstant, end.toInstant)
 
+  def toEpochMilli: Long = underlying.toInstant.toEpochMilli
+
   def compare(that: ZonedDateTime): Int = underlying.compareTo(that)
 
   def format(pattern: String): String = underlying.format(DateTimeFormatter.ofPattern(pattern))
