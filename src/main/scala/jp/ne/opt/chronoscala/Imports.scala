@@ -14,6 +14,7 @@ trait TypeImports {
   type LocalDate = java.time.LocalDate
   type LocalTime = java.time.LocalTime
   type Instant = java.time.Instant
+  type Duration = java.time.Duration
 }
 
 trait StaticForwarderImports {
