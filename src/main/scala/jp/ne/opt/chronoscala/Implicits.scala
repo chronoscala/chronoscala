@@ -10,12 +10,14 @@ trait Implicits
   extends IntImplicits
   with DurationImplicits
   with TimeImplicits
+  with ZoneImplicits
   with OrderingImplicits
 
 trait NamespacedImplicits
   extends NamespacedIntImplicits
   with DurationImplicits
   with TimeImplicits
+  with ZoneImplicits
   with OrderingImplicits
 
 trait IntImplicits {
@@ -38,6 +40,10 @@ trait TimeImplicits {
   implicit def richLocalTime(t: LocalTime): RichLocalTime = new RichLocalTime(t)
   implicit def richLocalDate(t: LocalDate): RichLocalDate = new RichLocalDate(t)
   implicit def richInstant(i: Instant): RichInstant = new RichInstant(i)
+}
+
+trait ZoneImplicits {
+  implicit def stringToZoneId(s: String): ZoneId = ZoneId.of(s)
 }
 
 trait OrderingImplicits {
