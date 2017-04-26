@@ -3,7 +3,7 @@ package jp.ne.opt.chronoscala
 import java.time.temporal.ChronoUnit
 import java.time.Duration
 
-class RichDuration(val underlying: Duration) extends AnyVal {
+class RichDuration(val underlying: Duration) extends AnyVal with Ordered[Duration] {
 
   def millis: Long = underlying.toMillis
 
@@ -23,4 +23,5 @@ class RichDuration(val underlying: Duration) extends AnyVal {
 
   def unary_- : Duration = underlying.negated
 
+  override def compare(that: Duration): Int = underlying.compareTo(that)
 }
