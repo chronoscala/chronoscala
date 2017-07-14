@@ -18,7 +18,7 @@ lazy val chronoscala = (project in file("."))
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
-    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
+    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.5" % "test",
 
     TaskKey[Unit]("checkScalariform") := {
       val diff = "git diff".!!
