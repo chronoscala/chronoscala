@@ -14,11 +14,11 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.8", "2.12.1"),
+    crossScalaVersions := Seq(scala210, "2.11.11", "2.12.2"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
-    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
+    libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.5" % "test",
 
     TaskKey[Unit]("checkScalariform") := {
       val diff = "git diff".!!
