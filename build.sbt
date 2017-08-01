@@ -47,7 +47,7 @@ lazy val chronoscala = (project in file("."))
       import SbtScalariform._
 
       ScalariformKeys.preferences := ScalariformKeys.preferences.value
-        .setPreference(DoubleIndentClassDeclaration, false)
+        .setPreference(DoubleIndentConstructorArguments, false)
         .setPreference(SpacesAroundMultiImports, false)
     }
   )
