@@ -14,7 +14,7 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.11", "2.12.2"),
+    crossScalaVersions := Seq(scala210, "2.11.11", "2.12.3"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -47,7 +47,7 @@ lazy val chronoscala = (project in file("."))
       import SbtScalariform._
 
       ScalariformKeys.preferences := ScalariformKeys.preferences.value
-        .setPreference(DoubleIndentClassDeclaration, false)
+        .setPreference(DoubleIndentConstructorArguments, false)
         .setPreference(SpacesAroundMultiImports, false)
     }
   )
