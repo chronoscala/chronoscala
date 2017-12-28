@@ -45,3 +45,16 @@ import jp.ne.opt.chronoscala.NamespacedImports._
 // Methods are namespaced with `cs`.
 2.cs.months + 3.cs.days // returns P2M3D
 ```
+
+### ClockProvider
+
+ClockProvider is useful for unit testing.
+
+```scala
+import jp.ne.opt.chronoscala.Imports._
+import jp.ne.opt.chronoscala.ClockProvider
+
+ClockProvider.setCurrentClockFixedMillis(0L)
+
+Instant.now() // returns 1970-01-01T00:00:00Z
+```
