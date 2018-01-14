@@ -4,6 +4,13 @@ lazy val chronoscala = (project in file("."))
   .settings(
     name := "chronoscala",
 
+    publishTo := Some(
+      if (isSnapshot.value)
+        Opts.resolver.sonatypeSnapshots
+      else
+        Opts.resolver.sonatypeStaging
+    ),
+
     organization := "jp.ne.opt",
 
     licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/chronoscala/master/LICENSE"),
@@ -21,7 +28,7 @@ lazy val chronoscala = (project in file("."))
     libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.13.5" % "test",
 
     TaskKey[Unit]("checkScalariform") := {
-      val diff = "git diff".!!
+      val diff = sys.process.Process("git diff").!!
       if (diff.nonEmpty) {
         sys.error("Working directory is dirty!\n" + diff)
       }
