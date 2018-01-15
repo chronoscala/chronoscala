@@ -1,4 +1,4 @@
-val scala210 = "2.10.6"
+val scala210 = "2.10.7"
 
 lazy val chronoscala = (project in file("."))
   .settings(
@@ -14,7 +14,7 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.11", "2.12.3"),
+    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.4"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
