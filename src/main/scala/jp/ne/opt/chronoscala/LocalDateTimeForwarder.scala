@@ -5,11 +5,11 @@ import java.time.{Clock, ZoneId, LocalDateTime}
 
 trait LocalDateTimeForwarder {
 
-  def now() = LocalDateTime.now()
+  def now() = LocalDateTime.now(ClockProvider.clock)
 
   def now(clock: Clock) = LocalDateTime.now(clock)
 
-  def now(zoneId: ZoneId) = LocalDateTime.now(zoneId)
+  def now(zoneId: ZoneId) = LocalDateTime.now(ClockProvider.clock.withZone(zoneId))
 
   def parse(str: String) = LocalDateTime.parse(str)
 

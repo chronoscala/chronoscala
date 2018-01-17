@@ -7,11 +7,11 @@ import scala.util.Try
 
 trait ZonedDateTimeForwarder {
 
-  def now() = ZonedDateTime.now()
+  def now() = ZonedDateTime.now(ClockProvider.clock)
 
   def now(clock: Clock) = ZonedDateTime.now(clock)
 
-  def now(zoneId: ZoneId) = ZonedDateTime.now(zoneId)
+  def now(zoneId: ZoneId) = ZonedDateTime.now(ClockProvider.clock.withZone(zoneId))
 
   def parse(str: String) = Try {
     ZonedDateTime.parse(str)
