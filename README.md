@@ -12,7 +12,7 @@ A port of [nscala_time](https://github.com/nscala-time/nscala-time) to JSR-310.
 ## Installation
 
 ```scala
-libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.1.5"
+libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.1.6"
 ```
 
 ## Usage
