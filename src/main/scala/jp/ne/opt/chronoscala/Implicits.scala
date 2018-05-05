@@ -14,6 +14,7 @@ trait Implicits
 
 trait NamespacedImplicits
   extends NamespacedIntImplicits
+  with NamespacedLongImplicits
   with DurationImplicits
   with TimeImplicits
   with OrderingImplicits
@@ -25,6 +26,11 @@ trait IntImplicits {
 trait NamespacedIntImplicits {
   implicit def richIntCs(n: Int): RichAny[Int] = new RichAny(n)
   implicit def richCsInt(n: CS[Int]): RichInt = new RichInt(n)
+}
+
+trait NamespacedLongImplicits {
+  implicit def richLongCs(n: Long): RichAny[Long] = new RichAny(n)
+  implicit def richCsLong(n: CS[Long]): RichLong = new RichLong(n)
 }
 
 trait DurationImplicits {
