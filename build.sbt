@@ -25,6 +25,16 @@ lazy val chronoscala = (project in file("."))
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
+    scalacOptions in (Compile, doc) ++= {
+      val tree = sys.process.Process("git rev-parse HEAD").lineStream_!.head
+      Seq(
+        "-sourcepath",
+        (baseDirectory in LocalRootProject).value.getAbsolutePath,
+        "-doc-source-url",
+        s"https://github.com/opt-tech/chronoscala/tree/${tree}€{FILE_PATH}.scala"
+      )
+    },
+
     libraryDependencies ++= Seq(
       "org.scalacheck" %% "scalacheck" % "1.13.5" % "test",
       "org.scalatest" %% "scalatest" % "3.0.5-M1" % "test"
