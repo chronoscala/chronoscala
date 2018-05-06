@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/opt-tech/chronoscala.svg?branch=master)](https://travis-ci.org/opt-tech/chronoscala)
 
-A port of [nscala_time](https://github.com/nscala-time/nscala-time) to JSR-310.
+A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 
 ## Requirements
 
@@ -37,18 +37,20 @@ ZonedDateTime.now() to (ZonedDateTime.now() + 1.day) // returns Interval(2016-07
 LocalDate.now() to (LocalDate.now() + 7.days) by 2.days // returns DateInterval(2016-09-04, 2016-09-06, 2016-09-08, 2016-09-10)
 ```
 
-Chronoscala also provides `NamespacedImports` to avoid conflicts between other library. (Currently, only methods in Int implicits are namespaced.)
+Chronoscala also provides `NamespacedImports` to avoid conflicts between other package such as `scala.concurrent.duration`.
 
 ```scala
 import jp.ne.opt.chronoscala.NamespacedImports._
 
 // Methods are namespaced with `cs`.
 2.cs.months + 3.cs.days // returns P2M3D
+
+2L.cs.seconds + 3L.cs.seconds // returns PT5S
 ```
 
 ### ClockProvider
 
-ClockProvider is useful for unit testing.
+`ClockProvider` is useful for unit testing.
 
 ```scala
 import jp.ne.opt.chronoscala.Imports._
