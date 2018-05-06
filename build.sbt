@@ -15,7 +15,7 @@ lazy val chronoscala = (project in file("."))
 
     licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/chronoscala/master/LICENSE"),
 
-    version := "0.1.7-SNAPSHOT",
+    version := "0.2.0",
 
     publishMavenStyle := true,
 
