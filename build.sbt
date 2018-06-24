@@ -21,7 +21,7 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.6", "2.13.0-M3"),
+    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.6", "2.13.0-M4"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -36,8 +36,8 @@ lazy val chronoscala = (project in file("."))
     },
 
     libraryDependencies ++= Seq(
-      "org.scalacheck" %% "scalacheck" % "1.13.5" % "test",
-      "org.scalatest" %% "scalatest" % "3.0.5-M1" % "test"
+      "org.scalacheck" %% "scalacheck" % "1.14.0" % "test",
+      "org.scalatest" %% "scalatest" % "3.0.6-SNAP1" % "test"
     ),
 
     TaskKey[Unit]("checkScalariform") := {
@@ -51,8 +51,12 @@ lazy val chronoscala = (project in file("."))
     val previousVersions = Set(0).map(patch => s"0.2.$patch")
     MimaPlugin.mimaDefaultSettings ++ Seq(
       mimaPreviousArtifacts := {
-        previousVersions.map {
-          organization.value %% name.value % _
+        if (scalaVersion.value == "2.13.0-M4") {
+          Set.empty
+        } else {
+          previousVersions.map {
+            organization.value %% name.value % _
+          }
         }
       },
       test in Test := {
