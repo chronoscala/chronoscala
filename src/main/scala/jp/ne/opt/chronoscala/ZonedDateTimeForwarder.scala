@@ -7,13 +7,13 @@ import scala.util.Try
 
 trait ZonedDateTimeForwarder {
 
-  def now() = ZonedDateTime.now(ClockProvider.clock)
+  def now(): ZonedDateTime = ZonedDateTime.now(ClockProvider.clock)
 
-  def now(clock: Clock) = ZonedDateTime.now(clock)
+  def now(clock: Clock): ZonedDateTime = ZonedDateTime.now(clock)
 
-  def now(zoneId: ZoneId) = ZonedDateTime.now(ClockProvider.clock.withZone(zoneId))
+  def now(zoneId: ZoneId): ZonedDateTime = ZonedDateTime.now(ClockProvider.clock.withZone(zoneId))
 
-  def parse(str: String) = Try {
+  def parse(str: String): ZonedDateTime = Try {
     ZonedDateTime.parse(str)
   }.recover {
     case e: DateTimeParseException => LocalDateTime.parse(str).atZone(ZoneId.systemDefault)
@@ -21,6 +21,6 @@ trait ZonedDateTimeForwarder {
     case e: DateTimeParseException => LocalDate.parse(str).atStartOfDay(ZoneId.systemDefault)
   }.get
 
-  def parse(str: String, formatter: DateTimeFormatter) = ZonedDateTime.parse(str, formatter)
+  def parse(str: String, formatter: DateTimeFormatter): ZonedDateTime = ZonedDateTime.parse(str, formatter)
 
 }
