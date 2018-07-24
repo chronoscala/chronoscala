@@ -4,20 +4,20 @@ import java.time.Duration
 
 class RichLong(val underlying: Long) extends AnyVal {
 
-  def nanos = Duration.ofNanos(underlying)
+  def nanos: Duration = Duration.ofNanos(underlying)
 
-  def millis = Duration.ofMillis(underlying)
+  def millis: Duration = Duration.ofMillis(underlying)
 
-  def seconds = Duration.ofSeconds(underlying)
+  def seconds: Duration = Duration.ofSeconds(underlying)
 
-  def minutes = Duration.ofMinutes(underlying)
+  def minutes: Duration = Duration.ofMinutes(underlying)
 
-  def hours = Duration.ofHours(underlying)
+  def hours: Duration = Duration.ofHours(underlying)
 
   // singular form
-  def nano = nanos
-  def milli = millis
-  def second = seconds
-  def minute = minutes
-  def hour = hours
+  def nano: Duration = nanos
+  def milli: Duration = millis
+  def second: Duration = seconds
+  def minute: Duration = minutes
+  def hour: Duration = hours
 }

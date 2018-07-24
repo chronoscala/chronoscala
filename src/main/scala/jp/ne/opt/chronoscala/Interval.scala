@@ -8,13 +8,13 @@ import java.time.{ZonedDateTime, Duration, ZoneId, Instant}
 case class Interval(startInstant: Instant, endInstant: Instant) {
   require(!endInstant.isBefore(startInstant), "The end instant must not be before the start")
 
-  val start = startInstant.atZone(ZoneId.systemDefault())
+  val start: ZonedDateTime = startInstant.atZone(ZoneId.systemDefault())
 
-  val end = endInstant.atZone(ZoneId.systemDefault())
+  val end: ZonedDateTime = endInstant.atZone(ZoneId.systemDefault())
 
-  val millis = endInstant.toEpochMilli - startInstant.toEpochMilli
+  val millis: Long = endInstant.toEpochMilli - startInstant.toEpochMilli
 
-  val duration = Duration.ofMillis(millis)
+  val duration: Duration = Duration.ofMillis(millis)
 
   def contains(millisInstant: Long): Boolean =
     millisInstant >= startInstant.toEpochMilli && millisInstant <= endInstant.toEpochMilli

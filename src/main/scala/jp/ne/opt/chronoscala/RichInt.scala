@@ -4,33 +4,33 @@ import java.time.{Period, Duration}
 
 class RichInt(val underlying: Int) extends AnyVal {
 
-  def nanos = Duration.ofNanos(underlying)
+  def nanos: Duration = Duration.ofNanos(underlying)
 
-  def millis = Duration.ofMillis(underlying)
+  def millis: Duration = Duration.ofMillis(underlying)
 
-  def seconds = Duration.ofSeconds(underlying)
+  def seconds: Duration = Duration.ofSeconds(underlying)
 
-  def minutes = Duration.ofMinutes(underlying)
+  def minutes: Duration = Duration.ofMinutes(underlying)
 
-  def hours = Duration.ofHours(underlying)
+  def hours: Duration = Duration.ofHours(underlying)
 
-  def days = Period.ofDays(underlying)
+  def days: Period = Period.ofDays(underlying)
 
-  def weeks = Period.ofWeeks(underlying)
+  def weeks: Period = Period.ofWeeks(underlying)
 
-  def months = Period.ofMonths(underlying)
+  def months: Period = Period.ofMonths(underlying)
 
-  def years = Period.ofYears(underlying)
+  def years: Period = Period.ofYears(underlying)
 
   // singular form
-  def nano = nanos
-  def milli = millis
-  def second = seconds
-  def minute = minutes
-  def hour = hours
+  def nano: Duration = nanos
+  def milli: Duration = millis
+  def second: Duration = seconds
+  def minute: Duration = minutes
+  def hour: Duration = hours
 
-  def day = days
-  def week = weeks
-  def month = months
-  def year = years
+  def day: Period = days
+  def week: Period = weeks
+  def month: Period = months
+  def year: Period = years
 }

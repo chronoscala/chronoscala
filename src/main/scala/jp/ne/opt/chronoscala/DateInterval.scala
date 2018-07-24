@@ -7,7 +7,7 @@ import jp.ne.opt.chronoscala.Imports._
  * Represents an immutable date interval
  */
 case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) extends Seq[LocalDate] {
-  def apply(idx: Int) = {
+  def apply(idx: Int): LocalDate = {
     if (0 <= idx && idx < length) {
       iterator.drop(idx).next
     } else {
@@ -15,9 +15,9 @@ case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) 
     }
   }
 
-  def iterator = Iterator.iterate(startDate)(_ + step).takeWhile(_ <= endDate)
+  def iterator: Iterator[LocalDate] = Iterator.iterate(startDate)(_ + step).takeWhile(_ <= endDate)
 
-  def length = iterator.length
+  def length: Int = iterator.length
 
-  def by(step: Period) = this.copy(step = step)
+  def by(step: Period): DateInterval = this.copy(step = step)
 }

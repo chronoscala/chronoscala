@@ -5,14 +5,14 @@ import java.time.{Clock, ZoneId, LocalTime}
 
 trait LocalTimeForwarder {
 
-  def now() = LocalTime.now(ClockProvider.clock)
+  def now(): LocalTime = LocalTime.now(ClockProvider.clock)
 
-  def now(clock: Clock) = LocalTime.now(clock)
+  def now(clock: Clock): LocalTime = LocalTime.now(clock)
 
-  def now(zoneId: ZoneId) = LocalTime.now(ClockProvider.clock.withZone(zoneId))
+  def now(zoneId: ZoneId): LocalTime = LocalTime.now(ClockProvider.clock.withZone(zoneId))
 
-  def parse(str: String) = LocalTime.parse(str)
+  def parse(str: String): LocalTime = LocalTime.parse(str)
 
-  def parse(str: String, formatter: DateTimeFormatter) = LocalTime.parse(str, formatter)
+  def parse(str: String, formatter: DateTimeFormatter): LocalTime = LocalTime.parse(str, formatter)
 
 }
