@@ -37,7 +37,7 @@ lazy val chronoscala = (project in file("."))
 
     libraryDependencies ++= Seq(
       "org.scalacheck" %% "scalacheck" % "1.14.0" % "test",
-      "org.scalatest" %% "scalatest" % "3.0.6-SNAP1" % "test"
+      "org.scalatest" %% "scalatest" % "3.0.6-SNAP2" % "test"
     ),
 
     TaskKey[Unit]("checkScalariform") := {
