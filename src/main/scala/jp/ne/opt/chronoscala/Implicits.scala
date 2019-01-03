@@ -40,6 +40,7 @@ trait DurationImplicits {
 
 trait TimeImplicits {
   implicit def richZonedDateTime(t: ZonedDateTime): RichZonedDateTime = new RichZonedDateTime(t)
+  implicit def richOffsetDateTime(t: OffsetDateTime): RichOffsetDateTime = new RichOffsetDateTime(t)
   implicit def richLocalDateTime(t: LocalDateTime): RichLocalDateTime = new RichLocalDateTime(t)
   implicit def richLocalTime(t: LocalTime): RichLocalTime = new RichLocalTime(t)
   implicit def richLocalDate(t: LocalDate): RichLocalDate = new RichLocalDate(t)
@@ -48,6 +49,7 @@ trait TimeImplicits {
 
 trait OrderingImplicits {
   implicit val zonedDateTimeOrdering: Ordering[ZonedDateTime] = Ordering.fromLessThan(_ isBefore _)
+  implicit val offsetDateTimeOrdering: Ordering[OffsetDateTime] = Ordering.fromLessThan(_ isBefore _)
   implicit val localDateTimeOrdering: Ordering[LocalDateTime] = Ordering.fromLessThan(_ isBefore _)
   implicit val localDateOrdering: Ordering[LocalDate] = Ordering.fromLessThan(_ isBefore _)
   implicit val localTimeOrdering: Ordering[LocalTime] = Ordering.fromLessThan(_ isBefore _)

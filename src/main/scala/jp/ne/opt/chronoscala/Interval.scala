@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{ZonedDateTime, Duration, ZoneId, Instant}
+import java.time.{ZonedDateTime, OffsetDateTime, Duration, ZoneId, Instant}
 
 /**
  * Represents an immutable time interval.
@@ -23,6 +23,9 @@ case class Interval(startInstant: Instant, endInstant: Instant) {
     contains(instant.toEpochMilli)
 
   def contains(dateTime: ZonedDateTime): Boolean =
+    contains(dateTime.toInstant)
+
+  def contains(dateTime: OffsetDateTime): Boolean =
     contains(dateTime.toInstant)
 
   def contains(other: Interval): Boolean = {
