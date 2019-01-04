@@ -1,8 +1,7 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Duration, Instant, ZonedDateTime}
+import java.time._
 import java.util.TimeZone
-
 import org.scalacheck.Gen
 
 trait Gens {
@@ -12,6 +11,12 @@ trait Gens {
     instant <- instantGen
     zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId))
   } yield ZonedDateTime.ofInstant(instant, zoneId)
+
+  def offsetDateTimeGen: Gen[OffsetDateTime] = for {
+    instant <- instantGen.map(_.atZone(ZoneOffset.UTC).toLocalDateTime)
+    offset <- Gen.chooseNum(ZoneOffset.MIN.getTotalSeconds, ZoneOffset.MAX.getTotalSeconds)
+      .map(ZoneOffset.ofTotalSeconds)
+  } yield OffsetDateTime.of(instant, offset)
 
   def durationGen: Gen[Duration] = for {
     start <- instantGen

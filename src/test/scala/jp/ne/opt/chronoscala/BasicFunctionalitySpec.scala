@@ -12,9 +12,21 @@ object BasicFunctionalitySpec extends Properties("ZonedDateTime") with Gens {
     }
   }
 
+  property("OffsetDateTime equality") = Prop.secure {
+    forAll(offsetDateTimeGen) { offsetDateTime =>
+      offsetDateTime == offsetDateTime
+    }
+  }
+
   property("zonedDateTime < (zonedDateTime + 1.hour)") = Prop.secure {
     forAll(zonedDateTimeGen) { zonedDateTime =>
       zonedDateTime < (zonedDateTime + 1.hour)
+    }
+  }
+
+  property("offsetDateTime < (offsetDateTime + 1.hour)") = Prop.secure {
+    forAll(offsetDateTimeGen) { offsetDateTime =>
+      offsetDateTime < (offsetDateTime + 1.hour)
     }
   }
 }

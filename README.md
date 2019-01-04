@@ -22,6 +22,8 @@ import jp.ne.opt.chronoscala.Imports._
 
 ZonedDateTime.now() + 2.months // returns java.time.ZonedDateTime = 2016-09-12T02:24:22.724+09:00[Asia/Tokyo]
 
+OffsetDateTime.now() + 2.months // returns java.time.OffsetDateTime = 2016-09-12T02:24:22.724+09:00
+
 ZonedDateTime.now() < ZonedDateTime.now() + 1.month // returns true
 
 ZonedDateTime.now() to (ZonedDateTime.now() + 1.day) // returns Interval(2016-07-11T19:15:42.641Z,2016-07-12T19:15:42.641Z)

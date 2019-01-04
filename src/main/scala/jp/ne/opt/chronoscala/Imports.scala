@@ -10,6 +10,7 @@ trait NamespacedImports extends TypeImports with StaticForwarderImports with Nam
 
 trait TypeImports {
   type ZonedDateTime = java.time.ZonedDateTime
+  type OffsetDateTime = java.time.OffsetDateTime
   type LocalDateTime = java.time.LocalDateTime
   type LocalDate = java.time.LocalDate
   type LocalTime = java.time.LocalTime
@@ -19,6 +20,7 @@ trait TypeImports {
 
 trait StaticForwarderImports {
   object ZonedDateTime extends ZonedDateTimeForwarder
+  object OffsetDateTime extends OffsetDateTimeForwarder
   object LocalDateTime extends LocalDateTimeForwarder
   object LocalDate extends LocalDateForwarder
   object LocalTime extends LocalTimeForwarder
