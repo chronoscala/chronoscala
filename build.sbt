@@ -15,7 +15,7 @@ lazy val chronoscala = (project in file("."))
 
     licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/chronoscala/master/LICENSE"),
 
-    version := "0.2.2-SNAPSHOT",
+    version := "0.3.0",
 
     publishMavenStyle := true,
 
@@ -48,15 +48,11 @@ lazy val chronoscala = (project in file("."))
     }
   )
   .settings({
-    val previousVersions = Set(0, 1).map(patch => s"0.2.$patch")
+    val previousVersions = Set.empty
     MimaPlugin.mimaDefaultSettings ++ Seq(
       mimaPreviousArtifacts := {
-        if (scalaVersion.value == "2.13.0-M4") {
-          Set.empty
-        } else {
-          previousVersions.map {
-            organization.value %% name.value % _
-          }
+        previousVersions.map {
+          organization.value %% name.value % _
         }
       },
       test in Test := {
