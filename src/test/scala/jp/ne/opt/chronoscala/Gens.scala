@@ -9,7 +9,7 @@ trait Gens {
 
   def zonedDateTimeGen: Gen[ZonedDateTime] = for {
     instant <- instantGen
-    zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId))
+    zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq)
   } yield ZonedDateTime.ofInstant(instant, zoneId)
 
   def offsetDateTimeGen: Gen[OffsetDateTime] = for {
