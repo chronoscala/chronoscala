@@ -6,6 +6,12 @@ import org.scalacheck.{Prop, Properties}
 
 object BasicFunctionalitySpec extends Properties("ZonedDateTime") with Gens {
 
+  property("LocalDateTime equality") = Prop.secure {
+    forAll(localDateTimeGen) { localDateTime =>
+      localDateTime == localDateTime
+    }
+  }
+
   property("ZonedDateTime equality") = Prop.secure {
     forAll(zonedDateTimeGen) { zonedDateTime =>
       zonedDateTime == zonedDateTime
@@ -15,6 +21,12 @@ object BasicFunctionalitySpec extends Properties("ZonedDateTime") with Gens {
   property("OffsetDateTime equality") = Prop.secure {
     forAll(offsetDateTimeGen) { offsetDateTime =>
       offsetDateTime == offsetDateTime
+    }
+  }
+
+  property("localDateTime < (localDateTime + 1.hour)") = Prop.secure {
+    forAll(localDateTimeGen) { localDateTime =>
+      localDateTime < (localDateTime + 1.hour)
     }
   }
 
