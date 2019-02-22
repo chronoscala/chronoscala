@@ -7,6 +7,11 @@ import org.scalacheck.Gen
 trait Gens {
   def instantGen: Gen[Instant] = Gen.chooseNum(0L, Long.MaxValue).map(Instant.ofEpochMilli)
 
+  def localDateTimeGen: Gen[LocalDateTime] = for {
+    instant <- instantGen
+    zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq)
+  } yield LocalDateTime.ofInstant(instant, zoneId)
+
   def zonedDateTimeGen: Gen[ZonedDateTime] = for {
     instant <- instantGen
     zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq)
