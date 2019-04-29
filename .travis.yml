@@ -12,6 +12,7 @@ jdk:
 matrix:
   include:
   - jdk: openjdk11
+    dist: xenial
     scala: 2.12.8
 
 script:
