@@ -21,7 +21,7 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.8", "2.13.0-RC2"),
+    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.8", "2.13.0-RC3"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -51,7 +51,7 @@ lazy val chronoscala = (project in file("."))
     val previousVersions = Set(0, 1).map(patch => s"0.3.$patch")
     MimaPlugin.mimaDefaultSettings ++ Seq(
       mimaPreviousArtifacts := {
-        if (scalaVersion.value == "2.13.0-RC2") {
+        if (scalaVersion.value == "2.13.0-RC3") {
           Set.empty
         } else {
           previousVersions.map {

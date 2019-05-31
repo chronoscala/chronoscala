@@ -8,7 +8,7 @@ A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 ## Requirements
 
 - Java 8
-- Scala 2.10.x / 2.11.x / 2.12.x / 2.13.0-RC1
+- Scala 2.10.x / 2.11.x / 2.12.x / 2.13.0-RC3
 
 ## Installation
 
