@@ -34,7 +34,7 @@ case class Interval(startInstant: Instant, endInstant: Instant) {
     val thisStart = startInstant.toEpochMilli
     val thisEnd = endInstant.toEpochMilli
 
-    thisStart <= otherStart && otherStart < thisEnd && otherEnd <= thisEnd
+    thisStart <= otherStart && otherStart <= otherEnd && otherEnd <= thisEnd
   }
 
 }
