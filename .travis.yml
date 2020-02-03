@@ -3,17 +3,29 @@ language: scala
 scala:
   - 2.10.7
   - 2.11.12
-  - 2.12.8
-  - 2.13.0
+  - 2.12.10
+  - 2.13.1
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/launchers
 
 jdk:
   - openjdk8
+
+sudo: false
+
+script:
+  - sbt "++${TRAVIS_SCALA_VERSION}!" test checkScalariform
+
+before_cache:
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
+  - find $HOME/.ivy2/cache -name "*SNAPSHOT*" | xargs rm -rf
+  - if [[ ${JAVA_HOME} == $(jdk_switcher home openjdk11) ]]; then rm -rf $HOME/.ivy2/cache ; fi
 
 matrix:
   include:
   - jdk: openjdk11
     dist: xenial
-    scala: 2.12.8
-
-script:
-  - sbt "++${TRAVIS_SCALA_VERSION}!" test checkScalariform
+    scala: 2.12.10
