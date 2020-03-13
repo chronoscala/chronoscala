@@ -3,9 +3,10 @@ package jp.ne.opt.chronoscala
 import java.time.{Clock, ZoneId}
 
 import jp.ne.opt.chronoscala.Imports._
-import org.scalatest.{BeforeAndAfter, FlatSpec}
+import org.scalatest.BeforeAndAfter
+import org.scalatest.flatspec.AnyFlatSpec
 
-class ClockProviderSpec extends FlatSpec with BeforeAndAfter {
+class ClockProviderSpec extends AnyFlatSpec with BeforeAndAfter {
 
   after {
     ClockProvider.setCurrentClockSystem()
