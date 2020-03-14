@@ -2,9 +2,8 @@ import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-val scala210 = "2.10.7"
-
-lazy val chronoscala = (project in file("."))
+lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
+  .in(file("."))
   .settings(
     name := "chronoscala",
 
@@ -23,9 +22,9 @@ lazy val chronoscala = (project in file("."))
 
     publishMavenStyle := true,
 
-    scalaVersion := scala210,
+    scalaVersion := "2.11.12",
 
-    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.10", "2.13.1"),
+    crossScalaVersions := Seq("2.11.12", "2.12.10", "2.13.1"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -39,17 +38,24 @@ lazy val chronoscala = (project in file("."))
       )
     },
 
-    libraryDependencies ++= Seq(
-      "org.scalacheck" %% "scalacheck" % "1.14.3" % Test,
-      "org.scalatest" %% "scalatest" % "3.1.1" % Test
-    ),
-
     TaskKey[Unit]("checkScalariform") := {
       val diff = sys.process.Process("git diff").!!
       if (diff.nonEmpty) {
         sys.error("Working directory is dirty!\n" + diff)
       }
     }
+  )
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test,
+      "org.scalatest" %%% "scalatest" % "3.1.1" % Test
+    )
+  )
+  .jsSettings(
+    libraryDependencies ++= Seq(
+      "io.github.cquiroz" %%% "scala-java-time" % "2.0.0-RC4",
+      "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.0.0-RC4_2019c"
+    )
   )
   .settings({
     val previousVersions = (0 to 2).map(patch => s"0.3.$patch").toSet

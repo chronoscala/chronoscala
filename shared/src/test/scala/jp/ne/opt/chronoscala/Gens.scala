@@ -3,8 +3,10 @@ package jp.ne.opt.chronoscala
 import java.time._
 import java.util.TimeZone
 import org.scalacheck.Gen
+import Gens.timeZoneIds
 
 trait Gens {
+
   def instantGen: Gen[Instant] = Gen.chooseNum(0L, Long.MaxValue).map(Instant.ofEpochMilli)
 
   def localDateGen: Gen[LocalDate] = for {
@@ -15,7 +17,7 @@ trait Gens {
 
   def localDateTimeGen: Gen[LocalDateTime] = for {
     instant <- instantGen
-    zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq)
+    zoneId <- Gen.oneOf(timeZoneIds)
   } yield LocalDateTime.ofInstant(instant, zoneId)
 
   def localTimeGen: Gen[LocalTime] = for {
@@ -26,7 +28,7 @@ trait Gens {
 
   def zonedDateTimeGen: Gen[ZonedDateTime] = for {
     instant <- instantGen
-    zoneId <- Gen.oneOf(TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq)
+    zoneId <- Gen.oneOf(timeZoneIds)
   } yield ZonedDateTime.ofInstant(instant, zoneId)
 
   def offsetDateTimeGen: Gen[OffsetDateTime] = for {
@@ -39,4 +41,8 @@ trait Gens {
     start <- instantGen
     end <- instantGen
   } yield Duration.between(start, end)
+}
+
+object Gens {
+  private val timeZoneIds = TimeZone.getAvailableIDs.map(TimeZone.getTimeZone(_).toZoneId).toSeq
 }
