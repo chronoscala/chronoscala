@@ -52,7 +52,7 @@ lazy val chronoscala = (project in file("."))
     }
   )
   .settings({
-    val previousVersions = Set(0, 2).map(patch => s"0.3.$patch")
+    val previousVersions = (0 to 2).map(patch => s"0.3.$patch").toSet
     Seq(
       mimaPreviousArtifacts := {
         if (scalaBinaryVersion.value == "2.13") {
