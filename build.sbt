@@ -63,8 +63,14 @@ lazy val chronoscala = (project in file("."))
           }
         }
       },
-      mimaBinaryIssueFilters +=
-        ProblemFilters.exclude[DirectMissingMethodProblem]("jp.ne.opt.chronoscala.Interval.apply"),
+      //the exclusion filter is necessary for Scala compiler bug
+      mimaBackwardIssueFilters := Map(
+        "0.3.0" -> (
+          if (scalaBinaryVersion.value == "2.12")
+            Seq(ProblemFilters.exclude[DirectMissingMethodProblem]("jp.ne.opt.chronoscala.Interval.apply"))
+          else
+            Nil)
+      ),
       test in Test := {
         mimaReportBinaryIssues.value
         (test in Test).value
