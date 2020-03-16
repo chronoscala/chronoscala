@@ -1,3 +1,7 @@
+import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
+
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
 val scala210 = "2.10.7"
 
 lazy val chronoscala = (project in file("."))
@@ -21,7 +25,7 @@ lazy val chronoscala = (project in file("."))
 
     scalaVersion := scala210,
 
-    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.8", "2.13.0"),
+    crossScalaVersions := Seq(scala210, "2.11.12", "2.12.10", "2.13.1"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -36,8 +40,8 @@ lazy val chronoscala = (project in file("."))
     },
 
     libraryDependencies ++= Seq(
-      "org.scalacheck" %% "scalacheck" % "1.14.0" % "test",
-      "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+      "org.scalacheck" %% "scalacheck" % "1.14.3" % Test,
+      "org.scalatest" %% "scalatest" % "3.1.1" % Test
     ),
 
     TaskKey[Unit]("checkScalariform") := {
@@ -48,8 +52,8 @@ lazy val chronoscala = (project in file("."))
     }
   )
   .settings({
-    val previousVersions = Set(0, 1).map(patch => s"0.3.$patch")
-    MimaPlugin.mimaDefaultSettings ++ Seq(
+    val previousVersions = (0 to 2).map(patch => s"0.3.$patch").toSet
+    Seq(
       mimaPreviousArtifacts := {
         if (scalaBinaryVersion.value == "2.13") {
           Set.empty
@@ -59,6 +63,15 @@ lazy val chronoscala = (project in file("."))
           }
         }
       },
+      //chronoscala 0.3.0 is compiled with Scala 2.12.7.
+      //the exclusion filter is necessary to avoid false positive of binary compatibility issue for Scala compiler bug (https://github.com/scala/bug/issues/11207).
+      mimaBackwardIssueFilters := Map(
+        "0.3.0" -> (
+          if (scalaBinaryVersion.value == "2.12")
+            Seq(ProblemFilters.exclude[DirectMissingMethodProblem]("jp.ne.opt.chronoscala.Interval.apply"))
+          else
+            Nil)
+      ),
       test in Test := {
         mimaReportBinaryIssues.value
         (test in Test).value
@@ -74,4 +87,4 @@ lazy val chronoscala = (project in file("."))
         .setPreference(DoubleIndentConstructorArguments, false)
         .setPreference(SpacesAroundMultiImports, false)
     }
-  )
+  ).enablePlugins(MimaPlugin)
