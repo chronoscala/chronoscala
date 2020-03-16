@@ -63,7 +63,8 @@ lazy val chronoscala = (project in file("."))
           }
         }
       },
-      //the exclusion filter is necessary for Scala compiler bug
+      //chronoscala 0.3.0 is compiled with Scala 2.12.7.
+      //the exclusion filter is necessary to avoid false positive of binary compatibility issue for Scala compiler bug (https://github.com/scala/bug/issues/11207).
       mimaBackwardIssueFilters := Map(
         "0.3.0" -> (
           if (scalaBinaryVersion.value == "2.12")
