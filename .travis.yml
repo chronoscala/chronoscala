@@ -1,10 +1,9 @@
 language: scala
 
 scala:
-  - 2.10.7
   - 2.11.12
-  - 2.12.10
-  - 2.13.1
+  - 2.12.12
+  - 2.13.4
 
 jdk:
   - openjdk8
@@ -13,7 +12,7 @@ matrix:
   include:
   - jdk: openjdk11
     dist: xenial
-    scala: 2.12.10
+    scala: 2.12.12
 
 script:
   - sbt "++${TRAVIS_SCALA_VERSION}" test checkScalariform
