@@ -5,15 +5,16 @@
 
 A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 
-## Requirements
+## Supported environment
 
-- Java 8
-- Scala 2.10.x / 2.11.x / 2.12.x / 2.13.x
+- Scala 2.11.x / 2.12.x / 2.13.x
+  * Requries Java 8 or later
+- Scala.js
 
 ## Installation
 
 ```scala
-libraryDependencies += "jp.ne.opt" %% "chronoscala" % "0.3.2"
+libraryDependencies += "jp.ne.opt" %% "chronoscala" % LATEST_VERSION
 ```
 
 ## Usage

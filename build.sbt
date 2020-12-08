@@ -18,7 +18,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/chronoscala/master/LICENSE"),
 
-    version := "0.3.3-SNAPSHOT",
+    version := "1.0.0",
 
     publishMavenStyle := true,
 
@@ -58,26 +58,13 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
     )
   )
   .settings({
-    val previousVersions = (0 to 2).map(patch => s"0.3.$patch").toSet
+    val previousVersions = (0 to -1).map(patch => s"1.0.$patch").toSet
     Seq(
       mimaPreviousArtifacts := {
-        if (scalaBinaryVersion.value == "2.13") {
-          Set.empty
-        } else {
-          previousVersions.map {
-            organization.value %% name.value % _
-          }
+        previousVersions.map {
+          organization.value %% name.value % _
         }
       },
-      //chronoscala 0.3.0 is compiled with Scala 2.12.7.
-      //the exclusion filter is necessary to avoid false positive of binary compatibility issue for Scala compiler bug (https://github.com/scala/bug/issues/11207).
-      mimaBackwardIssueFilters := Map(
-        "0.3.0" -> (
-          if (scalaBinaryVersion.value == "2.12")
-            Seq(ProblemFilters.exclude[DirectMissingMethodProblem]("jp.ne.opt.chronoscala.Interval.apply"))
-          else
-            Nil)
-      ),
       test in Test := {
         mimaReportBinaryIssues.value
         (test in Test).value
