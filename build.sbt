@@ -24,9 +24,9 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     publishMavenStyle := true,
 
-    scalaVersion := "2.12.12",
+    scalaVersion := "2.12.13",
 
-    crossScalaVersions := Seq("2.11.12", "2.12.12", "2.13.4"),
+    crossScalaVersions := Seq("2.11.12", "2.12.13", "2.13.5"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -49,14 +49,14 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   )
   .settings(
     libraryDependencies ++= Seq(
-      "org.scalacheck" %%% "scalacheck" % "1.15.1" % Test,
-      "org.scalatest" %%% "scalatest" % "3.2.3" % Test
+      "org.scalacheck" %%% "scalacheck" % "1.15.2" % Test,
+      "org.scalatest" %%% "scalatest" % "3.2.6" % Test
     )
   )
   .jsSettings(
     libraryDependencies ++= Seq(
-      "io.github.cquiroz" %%% "scala-java-time" % "2.0.0",
-      "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.0.0"
+      "io.github.cquiroz" %%% "scala-java-time" % "2.2.0",
+      "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.2.0"
     )
   )
   .settings({
