@@ -24,9 +24,9 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     publishMavenStyle := true,
 
-    scalaVersion := "2.12.12",
+    scalaVersion := "2.12.13",
 
-    crossScalaVersions := Seq("2.11.12", "2.12.12", "2.13.4"),
+    crossScalaVersions := Seq("2.11.12", "2.12.13", "2.13.5"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
