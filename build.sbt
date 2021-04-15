@@ -2,7 +2,7 @@ import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-skip in publish := true
+publish / skip := true
 
 lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
@@ -30,11 +30,11 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
-    scalacOptions in (Compile, doc) ++= {
+    Compile / doc /scalacOptions ++= {
       val tree = sys.process.Process("git rev-parse HEAD").lineStream_!.head
       Seq(
         "-sourcepath",
-        (baseDirectory in LocalRootProject).value.getAbsolutePath,
+        (LocalRootProject / baseDirectory).value.getAbsolutePath,
         "-doc-source-url",
         s"https://github.com/opt-tech/chronoscala/tree/${tree}€{FILE_PATH}.scala"
       )
@@ -67,9 +67,9 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
           organization.value %% name.value % _
         }
       },
-      test in Test := {
+      Test / test := {
         mimaReportBinaryIssues.value
-        (test in Test).value
+        (Test / test).value
       }
     )
   })
