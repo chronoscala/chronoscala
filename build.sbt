@@ -2,7 +2,7 @@ import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-skip in publish := true
+publish / skip := true
 
 lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
