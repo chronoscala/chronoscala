@@ -26,7 +26,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     scalaVersion := "2.12.13",
 
-    crossScalaVersions := Seq("2.11.12", "2.12.13", "2.13.5"),
+    crossScalaVersions := Seq("2.12.13", "2.13.5", "3.0.0-RC3"),
 
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
 
@@ -49,7 +49,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   )
   .settings(
     libraryDependencies ++= Seq(
-      "org.scalacheck" %%% "scalacheck" % "1.15.2" % Test,
+      "org.scalacheck" %%% "scalacheck" % "1.15.3" % Test,
       "org.scalatest" %%% "scalatest" % "3.2.8" % Test
     )
   )
