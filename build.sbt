@@ -55,8 +55,8 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   )
   .jsSettings(
     libraryDependencies ++= Seq(
-      "io.github.cquiroz" %%% "scala-java-time" % "2.2.2",
-      "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.2.2"
+      "io.github.cquiroz" %%% "scala-java-time" % "2.3.0",
+      "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.3.0"
     )
   )
   .settings({
