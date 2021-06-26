@@ -2,9 +2,11 @@ package jp.ne.opt.chronoscala
 
 import java.time.format.DateTimeFormatter
 import java.time.temporal.{ChronoUnit, TemporalAmount}
-import java.time.{Duration, Period, OffsetDateTime}
+import java.time.{Duration, OffsetDateTime, Period}
 
-class RichOffsetDateTime(val underlying: OffsetDateTime) extends AnyVal with Ordered[OffsetDateTime] {
+class RichOffsetDateTime(val underlying: OffsetDateTime)
+  extends AnyVal
+  with Ordered[OffsetDateTime] {
 
   def +(millis: Long): OffsetDateTime = underlying.plus(millis, ChronoUnit.MILLIS)
 

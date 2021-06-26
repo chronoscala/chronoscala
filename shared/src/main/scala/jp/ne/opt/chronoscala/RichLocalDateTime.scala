@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Period, Duration, LocalDateTime}
+import java.time.{Duration, LocalDateTime, Period}
 import java.time.format.DateTimeFormatter
 import java.time.temporal.{ChronoUnit, TemporalAmount}
 

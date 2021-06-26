@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Instant, Clock}
+import java.time.{Clock, Instant}
 
 trait InstantForwarder {
 

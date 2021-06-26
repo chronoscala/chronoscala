@@ -10,12 +10,11 @@ object RichLocalDateTimeSpec extends Properties("RichLocalDateTime") with Gens {
     a <- localDateTimeGen
     b <- localDateTimeGen
     c <- localDateTimeGen
-  } yield (a, b, c)) {
-    case (a, b, c) =>
-      val antisymmetry = !(a <= b && b <= a) || a == b
-      val transitivity = !(a <= b && b <= c) || a <= c
-      val totality = a <= b || b <= a
+  } yield (a, b, c)) { case (a, b, c) =>
+    val antisymmetry = !(a <= b && b <= a) || a == b
+    val transitivity = !(a <= b && b <= c) || a <= c
+    val totality = a <= b || b <= a
 
-      antisymmetry && transitivity && totality
+    antisymmetry && transitivity && totality
   }
 }

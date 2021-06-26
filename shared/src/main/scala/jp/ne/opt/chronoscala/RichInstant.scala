@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.temporal.{ChronoUnit, TemporalAmount}
-import java.time.{Instant, Duration, Period}
+import java.time.{Duration, Instant, Period}
 
 class RichInstant(val underlying: Instant) extends AnyVal with Ordered[Instant] {
 

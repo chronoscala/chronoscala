@@ -14,12 +14,13 @@ trait OffsetDateTimeForwarder {
 
   def parse(str: String): OffsetDateTime = Try {
     OffsetDateTime.parse(str)
-  }.recover {
-    case e: DateTimeParseException => LocalDateTime.parse(str).atZone(ZoneId.systemDefault).toOffsetDateTime
-  }.recover {
-    case e: DateTimeParseException => LocalDate.parse(str).atStartOfDay(ZoneId.systemDefault).toOffsetDateTime
+  }.recover { case e: DateTimeParseException =>
+    LocalDateTime.parse(str).atZone(ZoneId.systemDefault).toOffsetDateTime
+  }.recover { case e: DateTimeParseException =>
+    LocalDate.parse(str).atStartOfDay(ZoneId.systemDefault).toOffsetDateTime
   }.get
 
-  def parse(str: String, formatter: DateTimeFormatter): OffsetDateTime = OffsetDateTime.parse(str, formatter)
+  def parse(str: String, formatter: DateTimeFormatter): OffsetDateTime =
+    OffsetDateTime.parse(str, formatter)
 
 }

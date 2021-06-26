@@ -33,7 +33,8 @@ trait Gens {
 
   def offsetDateTimeGen: Gen[OffsetDateTime] = for {
     instant <- instantGen.map(_.atZone(ZoneOffset.UTC).toLocalDateTime)
-    offset <- Gen.chooseNum(ZoneOffset.MIN.getTotalSeconds, ZoneOffset.MAX.getTotalSeconds)
+    offset <- Gen
+      .chooseNum(ZoneOffset.MIN.getTotalSeconds, ZoneOffset.MAX.getTotalSeconds)
       .map(ZoneOffset.ofTotalSeconds)
   } yield OffsetDateTime.of(instant, offset)
 
