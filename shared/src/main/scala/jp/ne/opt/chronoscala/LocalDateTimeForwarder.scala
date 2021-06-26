@@ -1,7 +1,7 @@
 package jp.ne.opt.chronoscala
 
 import java.time.format.DateTimeFormatter
-import java.time.{Clock, ZoneId, LocalDateTime}
+import java.time.{Clock, LocalDateTime, ZoneId}
 
 trait LocalDateTimeForwarder {
 
@@ -13,6 +13,7 @@ trait LocalDateTimeForwarder {
 
   def parse(str: String): LocalDateTime = LocalDateTime.parse(str)
 
-  def parse(str: String, formatter: DateTimeFormatter): LocalDateTime = LocalDateTime.parse(str, formatter)
+  def parse(str: String, formatter: DateTimeFormatter): LocalDateTime =
+    LocalDateTime.parse(str, formatter)
 
 }

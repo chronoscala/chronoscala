@@ -1,6 +1,6 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Period, Duration}
+import java.time.{Duration, Period}
 
 class RichInt(val underlying: Int) extends AnyVal {
 

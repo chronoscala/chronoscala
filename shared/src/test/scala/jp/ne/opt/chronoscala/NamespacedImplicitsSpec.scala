@@ -8,8 +8,8 @@ object NamespacedImplicitsSpec extends Properties("NamespacedImplicits") {
     import scala.concurrent.duration._
 
     1.second.getClass == classOf[FiniteDuration] &&
-      1L.second.getClass == classOf[FiniteDuration] &&
-      1.cs.second.getClass == classOf[java.time.Duration] &&
-      1L.cs.second.getClass == classOf[java.time.Duration]
+    1L.second.getClass == classOf[FiniteDuration] &&
+    1.cs.second.getClass == classOf[java.time.Duration] &&
+    1L.cs.second.getClass == classOf[java.time.Duration]
   }
 }

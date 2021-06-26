@@ -38,13 +38,6 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         "-doc-source-url",
         s"https://github.com/opt-tech/chronoscala/tree/${tree}€{FILE_PATH}.scala"
       )
-    },
-
-    TaskKey[Unit]("checkScalariform") := {
-      val diff = sys.process.Process("git diff").!!
-      if (diff.nonEmpty) {
-        sys.error("Working directory is dirty!\n" + diff)
-      }
     }
   )
   .settings(
@@ -72,14 +65,4 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         (Test / test).value
       }
     )
-  })
-  .settings(
-    {
-      import scalariform.formatter.preferences._
-      import SbtScalariform._
-
-      ScalariformKeys.preferences := ScalariformKeys.preferences.value
-        .setPreference(DoubleIndentConstructorArguments, false)
-        .setPreference(SpacesAroundMultiImports, false)
-    }
-  ).enablePlugins(MimaPlugin)
+  }).enablePlugins(MimaPlugin)

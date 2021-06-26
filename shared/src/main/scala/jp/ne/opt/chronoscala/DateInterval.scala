@@ -6,14 +6,14 @@ import jp.ne.opt.chronoscala.Imports._
 /**
  * Represents an immutable date interval
  */
-case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) extends Seq[LocalDate] {
-  def apply(idx: Int): LocalDate = {
+case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period)
+  extends Seq[LocalDate] {
+  def apply(idx: Int): LocalDate =
     if (0 <= idx && idx < length) {
       iterator.drop(idx).next()
     } else {
       throw new IndexOutOfBoundsException(idx.toString)
     }
-  }
 
   def iterator: Iterator[LocalDate] = Iterator.iterate(startDate)(_ + step).takeWhile(_ <= endDate)
 

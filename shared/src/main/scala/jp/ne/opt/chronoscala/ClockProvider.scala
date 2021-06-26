@@ -8,11 +8,10 @@ object ClockProvider {
 
   def clock: Clock = _clock
 
-  def setCurrentClock(clock: Clock): Unit = { _clock = clock }
+  def setCurrentClock(clock: Clock): Unit = _clock = clock
 
-  def setCurrentClockFixedMillis(epochMilli: Long): Unit = {
+  def setCurrentClockFixedMillis(epochMilli: Long): Unit =
     _clock = Clock.fixed(Instant.ofEpochMilli(epochMilli), ZoneId.systemDefault())
-  }
 
-  def setCurrentClockSystem(): Unit = { _clock = Clock.systemDefaultZone() }
+  def setCurrentClockSystem(): Unit = _clock = Clock.systemDefaultZone()
 }

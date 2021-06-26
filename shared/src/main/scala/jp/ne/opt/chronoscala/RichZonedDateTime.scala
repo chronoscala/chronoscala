@@ -1,8 +1,8 @@
 package jp.ne.opt.chronoscala
 
-import java.time.{Period, Duration, ZonedDateTime}
+import java.time.{Duration, Period, ZonedDateTime}
 import java.time.format.DateTimeFormatter
-import java.time.temporal.{TemporalAmount, ChronoUnit}
+import java.time.temporal.{ChronoUnit, TemporalAmount}
 
 class RichZonedDateTime(val underlying: ZonedDateTime) extends AnyVal with Ordered[ZonedDateTime] {
 
