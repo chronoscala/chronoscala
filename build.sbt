@@ -1,5 +1,9 @@
 import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
 
+val isScala3 = Def.setting(
+  CrossVersion.partialVersion(scalaVersion.value).exists(_._1 == 3)
+)
+
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 publish / skip := true
@@ -44,11 +48,12 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
     )
   )
   .settings({
-    val previousVersions = Set("1.0.0")
     Seq(
       mimaPreviousArtifacts := {
-        previousVersions.map {
-          organization.value %% name.value % _
+        if (isScala3.value) {
+          Set.empty
+        } else {
+          Set(organization.value %% name.value % "1.0.0")
         }
       },
       Test / test := {
