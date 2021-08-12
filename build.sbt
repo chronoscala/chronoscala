@@ -18,8 +18,8 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
       else
         Opts.resolver.sonatypeStaging
     ),
-    organization := "jp.ne.opt",
-    licenses += "MIT" -> url("https://raw.githubusercontent.com/opt-tech/chronoscala/master/LICENSE"),
+    organization := "com.github.chronoscala",
+    licenses += "MIT" -> url("https://raw.githubusercontent.com/chronoscala/chronoscala/master/LICENSE"),
     version := "1.0.1-SNAPSHOT",
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
@@ -31,7 +31,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         "-sourcepath",
         (LocalRootProject / baseDirectory).value.getAbsolutePath,
         "-doc-source-url",
-        s"https://github.com/opt-tech/chronoscala/tree/${tree}€{FILE_PATH}.scala"
+        s"https://github.com/chronoscala/chronoscala/tree/${tree}€{FILE_PATH}.scala"
       )
     }
   )
@@ -53,7 +53,8 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         if (isScala3.value) {
           Set.empty
         } else {
-          Set(organization.value %% name.value % "1.0.0")
+          // Set(organization.value %% name.value % "1.0.0")
+          Set.empty
         }
       },
       Test / test := {

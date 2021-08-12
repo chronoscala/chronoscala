@@ -1,15 +1,19 @@
-sonatypeProfileName := "jp.ne.opt"
+sonatypeProfileName := "com.github.chronoscala"
 
 pomExtra in Global := {
-  <url>https://github.com/opt-tech/chronoscala</url>
+  <url>https://github.com/chronoscala/chronoscala</url>
     <scm>
-      <connection>"scm:git:git@github.com:opt-tech/chronoscala.git"</connection>
-      <url>git@github.com:opt-tech/chronoscala.git</url>
+      <connection>"scm:git:git@github.com:chronoscala/chronoscala.git"</connection>
+      <url>git@github.com:chronoscala/chronoscala.git</url>
     </scm>
     <developers>
       <developer>
         <id>ocadaruma</id>
         <name>Haruki Okada</name>
+      </developer>
+      <developer>
+        <id>sh0hei</id>
+        <name>Shohei Shimomura</name>
       </developer>
     </developers>
 }

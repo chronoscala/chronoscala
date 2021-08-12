@@ -1,6 +1,6 @@
 # chronoscala
 
-[![Build Status](https://github.com/opt-tech/chronoscala/workflows/CI/badge.svg?branch=master)](https://github.com/opt-tech/chronoscala/workflows/CI/badge.svg?branch=master)
+[![Build Status](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=master)](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=master)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/jp.ne.opt/chronoscala_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/jp.ne.opt/chronoscala_2.12)
 
 A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
