@@ -1,4 +1,4 @@
-sonatypeProfileName := "com.github.chronoscala"
+sonatypeProfileName := "io.github.chronoscala"
 
 pomExtra in Global := {
   <url>https://github.com/chronoscala/chronoscala</url>
