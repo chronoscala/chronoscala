@@ -12,14 +12,13 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   .in(file("."))
   .settings(
     name := "chronoscala",
-    publishTo := Some(
-      if (isSnapshot.value)
-        Opts.resolver.sonatypeSnapshots
-      else
-        Opts.resolver.sonatypeStaging
-    ),
-    organization := "com.github.chronoscala",
-    licenses += "MIT" -> url("https://raw.githubusercontent.com/chronoscala/chronoscala/master/LICENSE"),
+    publishTo := sonatypePublishToBundle.value,
+
+    // For all Sonatype accounts created on or after February 2021
+    sonatypeCredentialHost := "s01.oss.sonatype.org",
+
+    organization := "io.github.chronoscala",
+    licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
     version := "1.0.1-SNAPSHOT",
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
