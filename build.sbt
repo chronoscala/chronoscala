@@ -18,7 +18,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
     sonatypeCredentialHost := "s01.oss.sonatype.org",
     organization := "io.github.chronoscala",
     licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
-    version := "1.0.1-SNAPSHOT",
+    version := "2.0.0",
     versionScheme := Some("early-semver"),
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
@@ -49,12 +49,8 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   .settings({
     Seq(
       mimaPreviousArtifacts := {
-        if (isScala3.value) {
-          Set.empty
-        } else {
-          // Set(organization.value %% name.value % "1.0.0")
-          Set.empty
-        }
+        // Set(organization.value %% name.value % "2.0.0")
+        Set.empty
       },
       Test / test := {
         mimaReportBinaryIssues.value
