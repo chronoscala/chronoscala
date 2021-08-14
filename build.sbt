@@ -16,15 +16,15 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
 
     // For all Sonatype accounts created on or after February 2021
     sonatypeCredentialHost := "s01.oss.sonatype.org",
-
     organization := "io.github.chronoscala",
     licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
     version := "1.0.1-SNAPSHOT",
+    versionScheme := Some("early-semver"),
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
     scalaVersion := crossScalaVersions.value.last,
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
-    Compile / doc /scalacOptions ++= {
+    Compile / doc / scalacOptions ++= {
       val tree = sys.process.Process("git rev-parse HEAD").lineStream_!.head
       Seq(
         "-sourcepath",
@@ -61,4 +61,5 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         (Test / test).value
       }
     )
-  }).enablePlugins(MimaPlugin)
+  })
+  .enablePlugins(MimaPlugin)
