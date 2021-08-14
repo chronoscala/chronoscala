@@ -21,6 +21,6 @@
     ```bash
     $ sbt
     > +publishSigned
-    > sonatypeRelease
+    > sonatypeBundleRelease
     ```
 6. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT` and update Mima setting.

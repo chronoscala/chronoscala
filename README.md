@@ -1,7 +1,7 @@
 # chronoscala
 
 [![Build Status](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=master)](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=master)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/jp.ne.opt/chronoscala_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/jp.ne.opt/chronoscala_2.12)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.chronoscala/chronoscala_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.chronoscala/chronoscala_2.12)
 
 A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 
@@ -14,13 +14,13 @@ A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 ## Installation
 
 ```scala
-libraryDependencies += "jp.ne.opt" %% "chronoscala" % LATEST_VERSION
+libraryDependencies += "io.github.chronoscala" %% "chronoscala" % LATEST_VERSION
 ```
 
 ## Usage
 
 ```scala
-import jp.ne.opt.chronoscala.Imports._
+import io.github.chronoscala.chronoscala.Imports._
 
 ZonedDateTime.now() + 2.months // returns java.time.ZonedDateTime = 2016-09-12T02:24:22.724+09:00[Asia/Tokyo]
 
@@ -44,7 +44,7 @@ LocalDate.now() to (LocalDate.now() + 7.days) by 2.days // returns DateInterval(
 Chronoscala also provides `NamespacedImports` to avoid conflicts between other package such as `scala.concurrent.duration`.
 
 ```scala
-import jp.ne.opt.chronoscala.NamespacedImports._
+import io.github.chronoscala.chronoscala.NamespacedImports._
 
 // Methods are namespaced with `cs`.
 2.cs.months + 3.cs.days // returns P2M3D
@@ -57,8 +57,8 @@ import jp.ne.opt.chronoscala.NamespacedImports._
 `ClockProvider` is useful for unit testing.
 
 ```scala
-import jp.ne.opt.chronoscala.Imports._
-import jp.ne.opt.chronoscala.ClockProvider
+import io.github.chronoscala.chronoscala.Imports._
+import io.github.chronoscala.chronoscala.ClockProvider
 
 ClockProvider.setCurrentClockFixedMillis(0L)
 
