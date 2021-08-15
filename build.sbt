@@ -13,13 +13,9 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
   .settings(
     name := "chronoscala",
     publishTo := sonatypePublishToBundle.value,
-
-    // For all Sonatype accounts created on or after February 2021
-    sonatypeCredentialHost := "s01.oss.sonatype.org",
     organization := "io.github.chronoscala",
     licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
     version := "2.0.0",
-    versionScheme := Some("early-semver"),
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
     scalaVersion := crossScalaVersions.value.last,
