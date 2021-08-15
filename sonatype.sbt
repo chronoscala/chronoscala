@@ -1,4 +1,6 @@
 sonatypeProfileName := "io.github.chronoscala"
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 pomExtra in Global := {
   <url>https://github.com/chronoscala/chronoscala</url>
