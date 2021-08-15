@@ -16,11 +16,12 @@
 2. Change `version` in `build.sbt` and update `README.md`(if needed).
 3. Merge `release/{version}` into master.
 4. Add tag named `{version}` to merge commit.
-5. Release to maven central.
+5. Release GitHub with tag set above and update `What's Changed`(if needed).
+6. Release to maven central.
 
     ```bash
     $ sbt
     > +publishSigned
     > sonatypeBundleRelease
     ```
-6. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT` and update Mima setting.
+7. Change `version` in `build.sbt` to `{version + 1}-SNAPSHOT` and update Mima setting.
