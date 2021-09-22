@@ -26,7 +26,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         "-sourcepath",
         (LocalRootProject / baseDirectory).value.getAbsolutePath,
         "-doc-source-url",
-        s"https://github.com/chronoscala/chronoscala/tree/${tree}€{FILE_PATH}.scala"
+        s"https://github.com/chronoscala/chronoscala/tree/$tree€{FILE_PATH}.scala"
       )
     }
   )
