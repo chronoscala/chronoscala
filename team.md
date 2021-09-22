@@ -14,7 +14,7 @@
 
 1. Create new branch named `release/{version}`.
 2. Change `version` in `build.sbt` and update `README.md`(if needed).
-3. Merge `release/{version}` into master.
+3. Merge `release/{version}` into `main`.
 4. Add tag named `{version}` to merge commit.
 5. Release GitHub with tag set above and update `What's Changed`(if needed).
 6. Release to maven central.
