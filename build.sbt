@@ -1,9 +1,5 @@
 import com.typesafe.tools.mima.core.{DirectMissingMethodProblem, ProblemFilters}
 
-val isScala3 = Def.setting(
-  CrossVersion.partialVersion(scalaVersion.value).exists(_._1 == 3)
-)
-
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
 publish / skip := true
@@ -17,7 +13,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
     licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
     version := "2.0.2",
     publishMavenStyle := true,
-    crossScalaVersions := Seq("2.12.15", "2.13.6", "3.0.2"),
+    crossScalaVersions := Seq("2.12.15", "2.13.6", "3.1.0"),
     scalaVersion := crossScalaVersions.value.last,
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature"),
     Compile / doc / scalacOptions ++= {
