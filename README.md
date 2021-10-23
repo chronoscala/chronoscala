@@ -7,7 +7,7 @@ A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 
 ## Supported environment
 
-- Scala 2.12.x / 2.13.x / 3.0.x
+- Scala 2.12.x / 2.13.x / 3.x.x
   * Requries Java 8 or later
 - Scala.js
 
