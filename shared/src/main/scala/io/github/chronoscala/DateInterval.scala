@@ -6,8 +6,7 @@ import Imports._
 /**
  * Represents an immutable date interval
  */
-case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period)
-  extends Seq[LocalDate] {
+case class DateInterval(startDate: LocalDate, endDate: LocalDate, step: Period) extends Seq[LocalDate] {
   def apply(idx: Int): LocalDate =
     if (0 <= idx && idx < length) {
       iterator.drop(idx).next()
