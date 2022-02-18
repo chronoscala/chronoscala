@@ -6,11 +6,7 @@ import Tag.CS
 
 import scala.language.implicitConversions
 
-trait Implicits
-  extends IntImplicits
-  with DurationImplicits
-  with TimeImplicits
-  with OrderingImplicits
+trait Implicits extends IntImplicits with DurationImplicits with TimeImplicits with OrderingImplicits
 
 trait NamespacedImplicits
   extends NamespacedIntImplicits
