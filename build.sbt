@@ -38,7 +38,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
       "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.4.0"
     )
   )
-  .settings({
+  .settings {
     Seq(
       mimaPreviousArtifacts := {
         // Set(organization.value %% name.value % "2.0.7")
@@ -49,5 +49,5 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
         (Test / test).value
       }
     )
-  })
+  }
   .enablePlugins(MimaPlugin)
