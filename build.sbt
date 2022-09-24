@@ -4,7 +4,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 publish / skip := true
 
-lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
+lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .in(file("."))
   .settings(
     name := "chronoscala",
@@ -32,7 +32,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
       "org.scalatest" %%% "scalatest" % "3.2.13" % Test
     )
   )
-  .jsSettings(
+  .platformsSettings(JSPlatform, NativePlatform)(
     libraryDependencies ++= Seq(
       "io.github.cquiroz" %%% "scala-java-time" % "2.4.0",
       "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.4.0"
