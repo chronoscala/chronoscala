@@ -50,4 +50,18 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform)
       }
     )
   }
+  .jsSettings(
+    scalacOptions += {
+      val a = (LocalRootProject / baseDirectory).value.toURI.toString
+      val tree = sys.process.Process("git rev-parse HEAD").lineStream_!.head
+      val g = "https://raw.githubusercontent.com/chronoscala/chronoscala/" + tree
+      val key =
+        if (scalaBinaryVersion.value == "3") {
+          "-scalajs-mapSourceURI"
+        } else {
+          "-P:scalajs:mapSourceURI"
+        }
+      s"${key}:$a->$g/"
+    }
+  )
   .enablePlugins(MimaPlugin)
