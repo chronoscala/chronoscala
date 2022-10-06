@@ -11,7 +11,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
     publishTo := sonatypePublishToBundle.value,
     organization := "io.github.chronoscala",
     licenses += "MIT" -> url("http://opensource.org/licenses/MIT"),
-    version := "2.0.7",
+    version := "2.0.8",
     publishMavenStyle := true,
     crossScalaVersions := Seq("2.12.17", "2.13.9", "3.2.0"),
     scalaVersion := crossScalaVersions.value.last,
@@ -41,7 +41,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .settings {
     Seq(
       mimaPreviousArtifacts := {
-        // Set(organization.value %% name.value % "2.0.7")
+        // Set(organization.value %% name.value % "2.0.8")
         Set.empty
       },
       Test / test := {
