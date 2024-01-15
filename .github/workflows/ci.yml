@@ -24,7 +24,7 @@ jobs:
           distribution: adopt
           java-version: ${{ matrix.java }}
       - name: Cache sbt
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v3.3.3
         with:
           path: |
             ~/.sbt
