@@ -1,5 +1,7 @@
+import xerial.sbt.Sonatype.sonatype01
+
 sonatypeProfileName := "io.github.chronoscala"
-sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeCredentialHost := sonatype01
 sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 pomExtra in Global := {
