@@ -1,7 +1,7 @@
 # chronoscala
 
-[![Build Status](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=main)](https://github.com/chronoscala/chronoscala/workflows/CI/badge.svg?branch=main)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.chronoscala/chronoscala_3/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.chronoscala/chronoscala_3)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/chronoscala/chronoscala/ci.yml?branch=main&style=for-the-badge)
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.chronoscala/chronoscala_3?style=for-the-badge)
 
 A JSR-310 port of [nscala_time](https://github.com/nscala-time/nscala-time)
 
