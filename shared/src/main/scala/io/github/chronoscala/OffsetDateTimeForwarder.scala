@@ -12,6 +12,21 @@ trait OffsetDateTimeForwarder {
 
   def now(zoneId: ZoneId): OffsetDateTime = OffsetDateTime.now(ClockProvider.clock.withZone(zoneId))
 
+  def of(date: LocalDate, time: LocalTime, offset: ZoneOffset): OffsetDateTime = OffsetDateTime.of(date, time, offset)
+
+  def of(dateTime: LocalDateTime, offset: ZoneOffset): OffsetDateTime = OffsetDateTime.of(dateTime, offset)
+
+  def of(
+      year: Int,
+      month: Int,
+      dayOfMonth: Int,
+      hour: Int,
+      minute: Int,
+      second: Int,
+      nanoOfSecond: Int,
+      offset: ZoneOffset
+  ): OffsetDateTime = OffsetDateTime.of(year, month, dayOfMonth, hour, minute, second, nanoOfSecond, offset)
+
   def parse(str: String): OffsetDateTime = Try {
     OffsetDateTime.parse(str)
   }.recover { case e: DateTimeParseException =>
