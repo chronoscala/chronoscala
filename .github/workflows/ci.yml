@@ -15,16 +15,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout current branch (full)
-        uses: actions/checkout@v4.2.1
+        uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-      - name: Setup Java and Scala
+      - name: Setup Java
         uses: actions/setup-java@7a6d8a8234af8eb26422e24e3006232cccaa061b # v4.6.0
         with:
           distribution: adopt
           java-version: ${{ matrix.java }}
+      - uses: sbt/setup-sbt@v1
       - name: Cache sbt
-        uses: actions/cache@v4.1.1
+        uses: actions/cache@v4.2.0
         with:
           path: |
             ~/.sbt
