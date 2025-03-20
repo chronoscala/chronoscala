@@ -41,10 +41,9 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   )
   .settings {
     Seq(
-      mimaPreviousArtifacts := {
+      mimaPreviousArtifacts :=
         // Set(organization.value %% name.value % "2.0.12")
-        Set.empty
-      },
+        Set.empty,
       Test / test := {
         mimaReportBinaryIssues.value
         (Test / test).value

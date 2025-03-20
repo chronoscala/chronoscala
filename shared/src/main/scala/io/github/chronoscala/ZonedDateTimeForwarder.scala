@@ -16,8 +16,16 @@ trait ZonedDateTimeForwarder {
 
   def of(localDateTime: LocalDateTime, zone: ZoneId): ZonedDateTime = ZonedDateTime.of(localDateTime, zone)
 
-  def of(year: Int, month: Int, dayOfMonth: Int, hour: Int, minute: Int, second: Int, nanoOfSecond: Int, zone: ZoneId)
-      : ZonedDateTime = ZonedDateTime.of(year, month, dayOfMonth, hour, minute, second, nanoOfSecond, zone)
+  def of(
+      year: Int,
+      month: Int,
+      dayOfMonth: Int,
+      hour: Int,
+      minute: Int,
+      second: Int,
+      nanoOfSecond: Int,
+      zone: ZoneId
+  ): ZonedDateTime = ZonedDateTime.of(year, month, dayOfMonth, hour, minute, second, nanoOfSecond, zone)
 
   def parse(str: String): ZonedDateTime = Try {
     ZonedDateTime.parse(str)
