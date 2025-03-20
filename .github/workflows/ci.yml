@@ -18,11 +18,12 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-      - name: Setup Java and Scala
+      - name: Setup Java
         uses: actions/setup-java@b36c23c0d998641eff861008f374ee103c25ac73 # v4.4.0
         with:
           distribution: adopt
           java-version: ${{ matrix.java }}
+      - uses: sbt/setup-sbt@v1
       - name: Cache sbt
         uses: actions/cache@v4.2.0
         with:
