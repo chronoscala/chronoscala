@@ -4,7 +4,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 
 publish / skip := true
 
-ThisBuild / version := "2.0.13"
+ThisBuild / version := "2.1.0"
 
 lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .in(file("."))
@@ -42,7 +42,7 @@ lazy val chronoscala = crossProject(JSPlatform, JVMPlatform, NativePlatform)
   .settings {
     Seq(
       mimaPreviousArtifacts :=
-        // Set(organization.value %% name.value % "2.0.12")
+        // Set(organization.value %% name.value % "2.0.13")
         Set.empty,
       Test / test := {
         mimaReportBinaryIssues.value
